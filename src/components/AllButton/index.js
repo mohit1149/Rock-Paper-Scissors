@@ -9,8 +9,12 @@ const AllButton = props => {
 
   return (
     <ListItem>
-      <BottomButton type="button">
-        <BottomImage src={imageUrl} alt={id} onClick={onClickButton} />
+      <BottomButton
+        type="button"
+        data-testid={`${id.toLowerCase()}Button`}
+        onClick={onClickButton}
+      >
+        <BottomImage src={imageUrl} alt={id} />
       </BottomButton>
     </ListItem>
   )

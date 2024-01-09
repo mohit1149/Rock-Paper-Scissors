@@ -56,9 +56,6 @@ class Home extends Component {
     const indexPosition = choicesList.indexOf(findChoice)
     const responseYourImage = choicesList[indexPosition].imageUrl
     const updatedIndexPosition = indexPosition + 1
-    console.log(randomNumber)
-    console.log(indexPosition)
-    console.log(updatedIndexPosition)
 
     if (indexPosition === randomNumber) {
       this.setState(prevState => ({
@@ -78,7 +75,17 @@ class Home extends Component {
       this.setState({
         opponentImage: responseOpponentImage,
         yourImage: responseYourImage,
-        currentHeading: 'YOU WIN',
+        currentHeading: 'YOU WON',
+      })
+    } else if (updatedIndexPosition === 3 && randomNumber === 0) {
+      this.setState(prevState => ({
+        scoreNumber: prevState.scoreNumber + 1,
+        isActive: !prevState.isActive,
+      }))
+      this.setState({
+        opponentImage: responseOpponentImage,
+        yourImage: responseYourImage,
+        currentHeading: 'YOU WON',
       })
     } else {
       this.setState(prevState => ({
@@ -95,12 +102,14 @@ class Home extends Component {
 
   onClickPlayAgain = () => {
     this.setState({
-      scoreNumber: 0,
       isActive: false,
       yourImage: '',
       opponentImage: '',
       currentHeading: '',
     })
+    this.setState(prevState => ({
+      scoreNumber: prevState.scoreNumber + 0,
+    }))
   }
 
   render() {
@@ -116,9 +125,9 @@ class Home extends Component {
         <UpperBgContainer>
           <UpperContainer>
             <ParagraphContainer>
-              <UpperParagraph>ROCK</UpperParagraph>
-              <UpperParagraph>PAPER</UpperParagraph>
-              <UpperParagraph>SCISSORS</UpperParagraph>
+              <UpperParagraph>
+                ROCK <br /> PAPER <br /> SCISSORS
+              </UpperParagraph>
             </ParagraphContainer>
             <ScoreContainer>
               <ScoreParagraph>Score</ScoreParagraph>

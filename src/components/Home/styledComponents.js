@@ -22,7 +22,7 @@ export const UpperContainer = styled.div`
 `
 export const ParagraphContainer = styled.div``
 
-export const UpperParagraph = styled.p`
+export const UpperParagraph = styled.h1`
   color: #ffffff;
   font-weight: bold;
   font-family: 'Roboto';
@@ -91,7 +91,7 @@ export const SmallContainer = styled.div`
   align-items: center;
 `
 
-export const ResponseHeading = styled.h1`
+export const ResponseHeading = styled.p`
   color: #ffffff;
   font-family: 'Roboto';
 `
